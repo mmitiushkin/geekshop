@@ -1,23 +1,38 @@
 [
     {
-        "category": "1",
         "name": "Худи черного цвета с монограммами adidas Originals",
-		"about": "Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни.",
-        "image": "Adidas-hoodie.png",
-        "price": "6090"
+		"description": "Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни.",
+        "image": "vendor/img/products/Adidas-hoodie.png",
+        "price": "6 090,00 руб."
     },
     {
-        "category": "2",
         "name": "Синяя куртка The North Face",
-		"about": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
-        "image": "Blue-jacket-The-North-Face.png",
-        "price": "23725"
+		"description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
+        "image": "vendor/img/products/Blue-jacket-The-North-Face.png",
+        "price": "23 725,00 руб."
     },
 	{
-        "category": "3",
         "name": "Коричневый спортивный oversized-топ ASOS DESIG",
-		"about": "Материал с плюшевой текстурой. Удобный и мягкий.",
-        "image": "Brown-sports-oversized-top-ASOS-DESIGN.png",
-        "price": "3390"
+		"description": "Материал с плюшевой текстурой. Удобный и мягкий.",
+        "image": "vendor/img/products/Brown-sports-oversized-top-ASOS-DESIGN.png",
+        "price": "3 390,00 руб."
+    },
+    {
+        "name": "Черный рюкзак Nike Heritage",
+		"description": "Плотная ткань. Легкий материал.",
+        "image": "vendor/img/products/Black-Nike-Heritage-backpack.png",
+        "price": "2 340,00 руб."
+    },
+    {
+        "name": "Черные туфли на платформе с 3 парами люверсов Dr Martens 1461 Bex",
+		"description": "Гладкий кожаный верх. Натуральный материал.",
+        "image": "vendor/img/products/Black-Dr-Martens-shoes.png",
+        "price": "13 590,00 руб."
+    },
+    {
+        "name": "Темно-синие широкие строгие брюки ASOS DESIGN",
+		"description": "Легкая эластичная ткань сирсакер Фактурная ткань.",
+        "image": "vendor/img/products/Dark-blue-wide-leg-ASOs-DESIGN-trousers.png",
+        "price": "2 890,00 руб."
     }
 ]

@@ -1,32 +1,24 @@
 from django.shortcuts import render
+import json
+import os
 
 
 # Create your views here.
+MODULE_DIR = os.path.dirname(__file__)
+
 
 def index(request):
     context = {
-        'title': 'GeekShop'
+        'title': 'GeekShop',
     }
     return render(request, 'products/index.html', context)
 
 
 def products(request):
+    file_path = os.path.join(MODULE_DIR, 'fixtures/products.json')
     context = {
         'title': 'GeekShop - Каталог',
-        'products': [
-            {'name': 'Худи черного цвета с монограммами adidas Originals',
-             'price': '60900',
-             'about': 'Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни!'
-             },
-            {'name': 'Синяя куртка The North Face',
-             'price': '23725',
-             'about': 'Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель!'
-             },
-            {'name': 'Коричневый спортивный oversized-топ ASOS DESIGN',
-             'price': '3390',
-             'about': 'Материал с плюшевой текстурой. Удобный и мягкий!'
-             },
-        ],
+        'products': json.load(open(file_path, encoding='utf-8'))
     }
     return render(request, 'products/products.html', context)
 

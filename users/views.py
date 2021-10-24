@@ -2,8 +2,9 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import auth
 from django.contrib import messages
+from baskets.models import Basket
 
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 from users.models import User
 # Create your views here.
 
@@ -40,4 +41,21 @@ def registration(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def profile(request):
+    user = request.user
+    if request.method == 'POST':
+        form = UserProfileForm(instance=user, files=request.FILES,data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Профиль изменен')
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = UserProfileForm(instance=user)
+    context = {'Title': 'Geekshop - Профиль',
+               'form': form,
+               'baskets': Basket.objects.filter(user=user)
+               }
+    return render(request, 'users/profile.html', context)
 

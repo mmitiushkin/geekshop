@@ -53,7 +53,7 @@ def profile(request):
             return HttpResponseRedirect(reverse('users:profile'))
     else:
         form = UserProfileForm(instance=user)
-    context = {'Title': 'Geekshop - Профиль',
+    context = {'title': 'Geekshop - Профиль',
                'form': form,
                'baskets': Basket.objects.filter(user=user)
                }

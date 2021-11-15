@@ -5,7 +5,7 @@ import json, os
 from users.models import User
 from products.models import ProductCategory, Product
 
-JSON_PATH = 'mainapp/jsons'
+JSON_PATH = 'products/fixtures'
 
 
 def load_from_json(file_name):

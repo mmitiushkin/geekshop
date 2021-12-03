@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import User
 from products.models import Product
+from django.utils.functional import cached_property
 
 
 
@@ -20,6 +21,11 @@ class Basket(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
     created_timestamp = models.DateTimeField(auto_now_add=True)
+
+
+    @cached_property
+    def get_items_cached(self):
+        return self.user.basket.select_related()
 
     @staticmethod
     def get_item(pk):

@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'products.context_processors.basket',
             ],
         },
     },
@@ -127,6 +128,9 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+LOGIN_REDIRECT_URL = '/products/'
+LOGOUT_REDIRECT_URL = '/'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
@@ -136,3 +140,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
+DOMAIN_NAME = 'http://localhost:8000'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '3e3baa4dcbce3c'
+EMAIL_HOST_PASSWORD = 'afde9a3c0346e9'
+EMAIL_PORT = '2525'

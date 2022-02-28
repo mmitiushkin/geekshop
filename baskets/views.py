@@ -1,14 +1,15 @@
-from django.shortcuts import HttpResponseRedirect
+from django.shortcuts import HttpResponseRedirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+from django.db.models import F, Q
 
 from products.models import Product
 from baskets.models import Basket
 
 @login_required
-def basket_add(request, product_id):
-    product = Product.objects.get(id=product_id)
+def basket_add(request, pk):
+    product = Product.objects.get(id=pk)
     baskets = Basket.objects.filter(user=request.user, product=product)
 
     if not baskets.exists():

@@ -12,13 +12,22 @@ from baskets.models import Basket
 from orders.models import Order, OrderItem
 from orders.forms import OrderItemForm
 from django.dispatch import receiver
+from common.views import CommonContextMixin
 
 
 class OrderList(ListView):
     model = Order
 
+    def get_context_data(self, **kwargs):
+        context = super(OrderList, self).get_context_data(**kwargs)
+        context['title'] = 'Список заказов'
+        return context
+
+
     def get_queryset(self):
         return Order.objects.filter(user=self.request.user)
+
+
 
 
 class OrderCreate(CreateView):
@@ -45,6 +54,7 @@ class OrderCreate(CreateView):
             else:
                 formset = OrderFormSet()
         context['orderitems'] = formset
+        context['title'] = 'Создание заказа'
 
         return context
 
@@ -82,6 +92,7 @@ class OrderUpdate(UpdateView):
                 if form.instance.pk:
                     form.initial['price'] = form.instance.product.price
         context['orderitems'] = formset
+        context['title'] = 'Создание заказа'
 
         return context
 
@@ -109,7 +120,7 @@ class OrderDelete(DeleteView):
 
 class OrderRead(DetailView):
     model = Order
-    extra_context = {'title': 'заказ/просмотр'}
+    extra_context = {'title': 'Просмотр заказа'}
 
 
 def order_forming_complete(request, pk):
